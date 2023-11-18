@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: felsokning/multinet:latest
+    # container: felsokning/multinet:latest
     steps:
       - name: Check out code
         uses: actions/checkout@v3
