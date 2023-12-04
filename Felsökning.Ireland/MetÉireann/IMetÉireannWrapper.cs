@@ -12,6 +12,14 @@ namespace Felsökning.Ireland.MetÉireann
     public interface IMetÉireannWrapper
     {
         /// <summary>
+        ///     Obtains the most recent Forecast for a given <see cref="TargetRegion"/>
+        /// </summary>
+        /// <param name="region">A valid <see cref="TargetRegion"/> forecasted by MetÉireann.</param>
+        /// <returns>An awaitable <see cref="Task"/> of <see cref="ForecastsForRegion"/>.</returns>
+        /// <exception cref="HttpRequestException"></exception>
+        Task<ForecastsForRegion> GetForecastForRegionAsync(TargetRegion region);
+
+        /// <summary>
         ///     Obtains the list of Observations from the prodapi.metweb.ie endpoint.
         /// </summary>
         /// <param name="city">A city which target for the API request.</param>
