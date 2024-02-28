@@ -19,7 +19,6 @@ namespace Felsökning.Ireland.IarnródÉireann
         /// <summary>
         ///     Initializes a new instance of the <see cref="IrishRailWrapper"/> class.
         /// </summary>
-        /// <param name="logger">An <see cref="OptionalAttribute"/> <see cref="ILogger{IrishRailWrapper}"/> passed by DI.</param>
         public IrishRailWrapper()
         {
             this.XmlDocument = new XmlDocument();

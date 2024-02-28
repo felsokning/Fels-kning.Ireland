@@ -23,6 +23,9 @@ namespace Felsökning.Ireland.MetÉireann
         [JsonPropertyName("temperature")]
         public string Temperature { get; set; } = string.Empty;
 
+        /// <summary>
+        ///     The Temperature Symbol
+        /// </summary>
         [JsonPropertyName("symbol")]
         public string Symbol { get; set; } = string.Empty;
 
