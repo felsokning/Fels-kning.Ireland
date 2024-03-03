@@ -4,7 +4,9 @@
     ///     Initializes a new instance of the <see cref="StopWrapper"/> class,
     ///     which is used to wrap calls to the Proto Stop API endpoints.
     /// </summary>
-    public class StopWrapper : HttpBase
+    /// <inheritdoc cref="HttpBase"/>
+    /// <inheritdoc cref="IStopWrapper"/>
+    public class StopWrapper : HttpBase, IStopWrapper
     {
         private const string _baseAddress = "https://www.buseireann.ie/inc/proto/";
 
@@ -21,6 +23,14 @@
             this.BusStops = new List<BusStop>(0);
         }
 
+        /// <summary>
+        ///     Gets and stores the list of bus stops for a given geo location.
+        /// </summary>
+        /// <param name="latitudeNorth">Latitude North</param>
+        /// <param name="latitudeSouth">Latitude South</param>
+        /// <param name="longitudeEast">Longitude East</param>
+        /// <param name="longitudeWest">Longitude West</param>
+        /// <returns>An awaitable <see cref="Task"/>.</returns>
         public async Task GetStopsForGeoLocationAsync(string latitudeNorth, string latitudeSouth, string longitudeEast, string longitudeWest)
         {
             var instanceTime = Math.Round((DateTime.UtcNow - DateTime.UnixEpoch).TotalMilliseconds, 0);
@@ -42,6 +52,11 @@
             }
         }
 
+        /// <summary>
+        ///     The Passages for an already retrieved list of stops.
+        ///     <para><see cref="GetStopsForGeoLocationAsync"/> MUST be called, first.</para>
+        /// </summary>
+        /// <returns>An awaitable <see cref="Task{TaskToAsyncResult}"/> of <see cref="List{T}"/> of <see cref="CorrelatedPassages"/>.</returns>
         public async Task<List<CorrelatedPassages>> GetPassagesForStopsAsync()
         {
             if (this.BusStops.Count == 0)
