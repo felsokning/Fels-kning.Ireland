@@ -10,16 +10,29 @@
     {
         private const string _baseAddress = "https://www.buseireann.ie/inc/proto/";
 
+        /// <summary>
+        ///     Gets or sets a <see cref="List{T}"/>,
+        ///     which contains a list of <see cref="BusStop"/> for a given geobox.
+        /// </summary>
         public List<BusStop> BusStops { get; set; }
+
+        private readonly HttpClient _tls12HttpClient;
 
         /// <summary>
         ///     Initializes a new instance of the <see cref="StopWrapper"/> class,
         ///     which is used to wrap calls to the Proto Stop API endpoints.
+        ///     <para>NOTE: Bus Éireann hasn't enabled TLS1.3, as of yet, so we have to use the old and busted TLS1.2 - until they do.</para>
         /// </summary>
         public StopWrapper()
-            : base(HttpVersion.Version11, "")
+            : base(HttpVersion.Version11, "Felsökning.Ireland")
         {
-            this.HttpClient.BaseAddress = new Uri(_baseAddress);
+            var tts12HttpHandler = new HttpClientHandler
+            {
+                SslProtocols = SslProtocols.Tls12
+            };
+
+            this._tls12HttpClient = new HttpClient(tts12HttpHandler);
+            this._tls12HttpClient.BaseAddress = new Uri(_baseAddress);
             this.BusStops = new List<BusStop>(0);
         }
 
@@ -35,7 +48,7 @@
         {
             var instanceTime = Math.Round((DateTime.UtcNow - DateTime.UnixEpoch).TotalMilliseconds, 0);
             var url = $"stopPointTdi.php?latitude_north={latitudeNorth}&latitude_south={latitudeSouth}& longitude_east={longitudeEast}&longitude_west={longitudeWest}&_={instanceTime}";
-            var result = await this.HttpClient.GetAsync<StopPointTdiResponse>(url);
+            var result = await this._tls12HttpClient.GetAsync<StopPointTdiResponse>(url);
             if (result != null)
             {
                 var stopPointTdi = result.StopPointTdi;
@@ -68,7 +81,7 @@
             foreach (var busStop in this.BusStops) 
             {
                 var url = $"stopPassageTdi.php?stop_point={busStop.Duid}&_={instanceTime}";
-                var result = await this.HttpClient.GetAsync<StopPassageTdiResponse>(url);
+                var result = await this._tls12HttpClient.GetAsync<StopPassageTdiResponse>(url);
                 if (result != null) 
                 {
                     var passages = new List<Passage>(0);
