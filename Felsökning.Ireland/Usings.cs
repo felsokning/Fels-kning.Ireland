@@ -5,6 +5,7 @@ global using System.Linq;
 global using System.Net;
 global using System.Runtime.InteropServices;
 global using System.Runtime.Serialization;
+global using System.Security.Authentication;
 global using System.Text;
 global using System.Text.Json.Serialization;
 global using System.Threading.Tasks;
