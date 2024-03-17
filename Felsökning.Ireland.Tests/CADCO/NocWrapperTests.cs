@@ -4,7 +4,7 @@
 // </copyright>
 // <author>John Bailey</author>
 // ----------------------------------------------------------------------
-namespace Felsökning.Ireland.Tests
+namespace Felsökning.Ireland.Tests.CADCO
 {
     [ExcludeFromCodeCoverage]
     [TestClass]

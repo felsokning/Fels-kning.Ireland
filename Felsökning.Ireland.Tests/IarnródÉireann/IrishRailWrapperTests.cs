@@ -4,7 +4,7 @@
 // </copyright>
 // <author>John Bailey</author>
 // ----------------------------------------------------------------------
-namespace Felsökning.Ireland.Tests
+namespace Felsökning.Ireland.Tests.IarnródÉireann
 {
     [ExcludeFromCodeCoverage]
     [TestClass]
@@ -38,7 +38,7 @@ namespace Felsökning.Ireland.Tests
             results.Count().Should().BeGreaterThanOrEqualTo(0);
 
             var station = results.FirstOrDefault(x => x.StationDesc.Contains("Portlaoise"));
-            station.StationAlias.Should().NotBeNull();
+            station!.StationAlias.Should().NotBeNull();
             station.StationLatitude.Should().BeGreaterThan(0);
             station.StationLongitude.Should().BeGreaterThan(-360);
             station.StationCode.Should().NotBeNullOrWhiteSpace();

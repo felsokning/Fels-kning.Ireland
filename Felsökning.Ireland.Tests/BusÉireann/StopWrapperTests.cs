@@ -1,4 +1,4 @@
-﻿namespace Felsökning.Ireland.Tests
+﻿namespace Felsökning.Ireland.Tests.BusÉireann
 {
     [TestClass]
     [ExcludeFromCodeCoverage]
@@ -42,9 +42,9 @@
             var results = await stopWrapper.GetPassagesForStopsAsync();
             results.Should().NotBeNull();
             results.Should().BeOfType<List<CorrelatedPassages>>();
-            foreach(var result in results)
+            foreach (var result in results)
             {
-                foreach(var passage in result.Passages)
+                foreach (var passage in result.Passages)
                 {
                     Trace.WriteLine($"Bus Stop: {result.BusStop.LongName} Scheduled Arrival: {passage.ArrivalData.ScheduledPassageTimeUtc} From: {passage.ArrivalData.MultilingualDirectionText.DefaultValue} Scheduled Departure: {passage.DepartureData.ScheduledPassageTimeUtc} To: {passage.DepartureData.MultilingualDirectionText.DefaultValue}");
                 }
