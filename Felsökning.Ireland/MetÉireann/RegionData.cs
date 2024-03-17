@@ -16,7 +16,7 @@ namespace Felsökning.Ireland.MetÉireann
         /// </summary>
         [JsonPropertyName("region")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string Region { get; set; }
+        public string Region { get; set; } = string.Empty;
 
         /// <summary>
         ///     Gets or sets the <see cref="Issued"/>
@@ -30,27 +30,27 @@ namespace Felsökning.Ireland.MetÉireann
         /// </summary>
         [JsonPropertyName("today")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string Today { get; set; }
+        public string Today { get; set; } = string.Empty;
 
         /// <summary>
         ///     Gets or sets the <see cref="Tonight"/>
         /// </summary>
         [JsonPropertyName("tonight")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string Tonight { get; set; }
+        public string Tonight { get; set; } = string.Empty;
 
         /// <summary>
         ///     Gets or sets the <see cref="Tomorrow"/>
         /// </summary>
         [JsonPropertyName("tomorrow")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string Tomorrow { get; set; }
+        public string Tomorrow { get; set; } = string.Empty;
 
         /// <summary>
         ///     Gets or sets the <see cref="Outlook"/>
         /// </summary>
         [JsonPropertyName("outlook")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string Outlook { get; set; }
+        public string Outlook { get; set; } = string.Empty;
     }
 }
