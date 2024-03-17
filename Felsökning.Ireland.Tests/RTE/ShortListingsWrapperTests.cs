@@ -1,4 +1,10 @@
-﻿namespace Felsökning.Ireland.Tests.RTE
+﻿//-----------------------------------------------------------------------
+// <copyright file="ShortListingsWrapperTests.cs" company="Felsökning">
+//     Copyright (c) Felsökning. All rights reserved.
+// </copyright>
+// <author>John Bailey</author>
+//-----------------------------------------------------------------------
+namespace Felsökning.Ireland.Tests.RTE
 {
     [TestClass]
     [ExcludeFromCodeCoverage]
