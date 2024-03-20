@@ -36,7 +36,7 @@ namespace Felsökning.Ireland.IarnródÉireann
             var memoryStream = new MemoryStream(Encoding.UTF8.GetBytes(this.XmlDocument.InnerXml));
             var xmlReader = XmlReader.Create(memoryStream);
             var result = this.XmlStationSerializer.Deserialize(xmlReader) as ArrayOfObjStation;
-            return result.objStation;
+            return result?.objStation ?? Array.Empty<ObjStation>();
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace Felsökning.Ireland.IarnródÉireann
             var memoryStream = new MemoryStream(Encoding.UTF8.GetBytes(this.XmlDocument.InnerXml));
             var xmlReader = XmlReader.Create(memoryStream);
             var result = this.XmlStationDataSerializer.Deserialize(xmlReader) as ArrayOfObjStationData;
-            return result.objStationData;
+            return result!.objStationData ?? Array.Empty<ObjStationData>();
         }
     }
 }
