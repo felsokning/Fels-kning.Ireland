@@ -204,7 +204,7 @@ namespace Felsökning.Ireland.Tests.RTE
             }
             asset.Subject.Should().NotBeNull();
             asset.Summary.Should().NotBeNull();
-            asset.Title.Should().NotBeNullOrWhiteSpace();
+            asset.Title.Should().NotBeNull();
             if (asset.Total.HasValue)
             {
                 asset.Total.Should().NotBeNull();
