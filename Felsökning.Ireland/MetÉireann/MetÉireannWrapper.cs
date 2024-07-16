@@ -17,7 +17,7 @@ namespace Felsökning.Ireland.MetÉireann
         ///     which is used to retrieve observations from Met Éireann.
         /// </summary>
         public MetÉireannWrapper()
-            : base(HttpVersion.Version20, "Felsökning.Utilities.Ireland.MetÉireann")
+            : base(HttpVersion.Version20, "Felsökning.Ireland.MetÉireann")
         {
         }
 

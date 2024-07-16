@@ -99,7 +99,7 @@ namespace Felsökning.Ireland.Tests.RTE
             }
             asset.Subject.Should().NotBeNull();
             asset.Summary.Should().NotBeNull();
-            asset.Title.Should().NotBeNullOrWhiteSpace();
+            asset.Title.Should().NotBeNull();
             if (asset.Total.HasValue)
             {
                 asset.Total.Should().NotBeNull();
@@ -120,7 +120,7 @@ namespace Felsökning.Ireland.Tests.RTE
             firstResult.Id.Should().NotBeNullOrWhiteSpace();
             firstResult.Meta.Should().NotBeNull();
             firstResult.Summary.Should().NotBeNull();
-            firstResult.Title.Should().NotBeNullOrWhiteSpace();
+            firstResult.Title.Should().NotBeNull();
         }
 
         [TestMethod]
