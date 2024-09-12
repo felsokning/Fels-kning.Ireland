@@ -1,4 +1,10 @@
-﻿namespace Felsökning.Ireland.BusÉireann
+﻿//-----------------------------------------------------------------------
+// <copyright file="StopWrapper.cs" company="Felsökning">
+//     Copyright (c) Felsökning. All rights reserved.
+// </copyright>
+// <author>John Bailey</author>
+//-----------------------------------------------------------------------
+namespace Felsökning.Ireland.BusÉireann
 {
     /// <summary>
     ///     Initializes a new instance of the <see cref="StopWrapper"/> class,
@@ -6,6 +12,8 @@
     /// </summary>
     /// <inheritdoc cref="HttpBase"/>
     /// <inheritdoc cref="IStopWrapper"/>
+    [ExcludeFromCodeCoverage]
+    [Obsolete("Bus Éireann has migrated to Graph QL. Please use TripsWrapper, instead.", false)]
     public class StopWrapper : HttpBase, IStopWrapper
     {
         private const string _baseAddress = "https://www.buseireann.ie/inc/proto/";
@@ -44,6 +52,7 @@
         /// <param name="longitudeEast">Longitude East</param>
         /// <param name="longitudeWest">Longitude West</param>
         /// <returns>An awaitable <see cref="Task"/>.</returns>
+        [Obsolete("Bus Éireann has migrated to Graph QL. Please use TripsWrapper, instead.", false)]
         public async Task GetStopsForGeoLocationAsync(string latitudeNorth, string latitudeSouth, string longitudeEast, string longitudeWest)
         {
             var instanceTime = Math.Round((DateTime.UtcNow - DateTime.UnixEpoch).TotalMilliseconds, 0);
@@ -70,6 +79,7 @@
         ///     <para><see cref="GetStopsForGeoLocationAsync"/> MUST be called, first.</para>
         /// </summary>
         /// <returns>An awaitable <see cref="Task{TaskToAsyncResult}"/> of <see cref="List{T}"/> of <see cref="CorrelatedPassages"/>.</returns>
+        [Obsolete("Bus Éireann has migrated to Graph QL. Please use TripsWrapper, instead.", false)]
         public async Task<List<CorrelatedPassages>> GetPassagesForStopsAsync()
         {
             if (this.BusStops.Count == 0)

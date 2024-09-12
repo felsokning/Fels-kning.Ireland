@@ -10,6 +10,7 @@ namespace Felsökning.Ireland.BusÉireann
     ///     Initializes a new instance of the <see cref="BusStop"/> class,
     ///     which is used to model the Bus Stops referenced by Bus Éireann.
     /// </summary>
+    [ExcludeFromCodeCoverage]
     public class BusStop
     {
         /// <summary>

@@ -9,6 +9,7 @@ namespace Felsökning.Ireland.BusÉireann
     /// <summary>
     ///     Initializes a new instance of the <see cref="MultilingualDirectionText"/> class.
     /// </summary>
+    [ExcludeFromCodeCoverage]
     public class MultilingualDirectionText
     {
         /// <summary>
