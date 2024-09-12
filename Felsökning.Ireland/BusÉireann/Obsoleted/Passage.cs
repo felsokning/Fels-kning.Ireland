@@ -9,6 +9,7 @@ namespace Felsökning.Ireland.BusÉireann
     /// <summary>
     ///     Initializes a new instance of the <see cref="Passage"/> class.
     /// </summary>
+    [ExcludeFromCodeCoverage]
     public class Passage
     {
         /// <summary>

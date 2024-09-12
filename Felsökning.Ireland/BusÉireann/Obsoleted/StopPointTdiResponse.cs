@@ -9,6 +9,7 @@ namespace Felsökning.Ireland.BusÉireann
     /// <summary>
     ///     Initializes a new instance of the <see cref="StopPointTdiResponse"/> class.
     /// </summary>
+    [ExcludeFromCodeCoverage]
     public class StopPointTdiResponse
     {
         /// <summary>
