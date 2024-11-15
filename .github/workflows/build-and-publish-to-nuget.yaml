@@ -13,15 +13,6 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@main
-      - name: Setup dotnet
-        uses: actions/setup-dotnet@v4.0.0
-        with:
-          dotnet-version: | 
-            5.0.x
-            6.0.x
-            7.0.x
-            8.0.x
-            9.0.x
       - name: .NET Restore
         run: dotnet restore --verbosity=normal
       - name: .NET Build
