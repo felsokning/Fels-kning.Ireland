@@ -108,7 +108,7 @@ namespace Felsökning.Ireland.Tests.RTE
 
             firstResult.Attribute.Count.Should().BeGreaterThan(0);
             firstResult.Certification.Should().NotBeNull();
-            firstResult.DateTime.Should().BeAfter(DateTime.UtcNow.AddDays(-1));
+            firstResult.DateTime.Should().BeAfter(DateTime.UtcNow.AddDays(-3));
             if (!firstResult.Duration.HasValue)
             {
                 firstResult.Duration.Should().BeNull();
@@ -213,7 +213,7 @@ namespace Felsökning.Ireland.Tests.RTE
 
             firstResult.Attribute.Count.Should().BeGreaterThan(0);
             firstResult.Certification.Should().NotBeNull();
-            firstResult.DateTime.Should().BeAfter(DateTime.UtcNow.AddDays(-1));
+            firstResult.DateTime.Should().BeAfter(DateTime.UtcNow.AddDays(-3));
             if (!firstResult.Duration.HasValue)
             {
                 firstResult.Duration.Should().BeNull();

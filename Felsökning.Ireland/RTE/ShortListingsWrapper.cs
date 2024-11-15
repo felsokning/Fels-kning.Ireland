@@ -8,11 +8,11 @@ namespace Felsökning.Ireland.RTE
     /// <inheritdoc cref="HttpBase"/>
     public class ShortListingsWrapper : HttpBase
     {
-        private const string baseAddress = "https://www.rte.ie/dotie-data/tv-listings-data/";
+        private const string baseAddress = "https://www.rte.ie/data-feed/pa/";
 
-        private const string rte1json = "rte-1-short.json";
+        private const string rte1json = "rte-1.json";
 
-        private const string rte2json = "rte-2-short.json";
+        private const string rte2json = "rte-2.json";
 
         /// <summary>
         ///     Initializes a new instance of the <see cref="ShortListingsWrapper"/>,
