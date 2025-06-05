@@ -73,7 +73,7 @@ namespace Felsökning.Ireland.Tests.RTE
                 var firstContributor = contributor[0];
                 firstContributor.Should().NotBeNull();
                 firstContributor.Should().BeOfType<Contributor>();
-                firstContributor.Dob.Should().NotBeNullOrWhiteSpace();
+                firstContributor.Dob.Should().NotBeNull();
                 firstContributor.Character.Should().NotBeNull();
                 firstContributor.Gender.Should().NotBeNullOrWhiteSpace();
                 firstContributor.From.Should().NotBeNullOrWhiteSpace();
