@@ -26,7 +26,7 @@
             tripsWrapper.Should().NotBeNull();
             tripsWrapper.Should().BeOfType<TripsWrapper>();
 
-            var exception = await Assert.ThrowsExceptionAsync<InvalidOperationException>(async () => await tripsWrapper.GetStopsForCityAsync(string.Empty));
+            var exception = await Assert.ThrowsExactlyAsync<InvalidOperationException>(async () => await tripsWrapper.GetStopsForCityAsync(string.Empty));
 
             exception.Should().BeOfType<InvalidOperationException>();
             exception.Message.Should().Be("Cannot get stops for null/empty/whitespace.");
@@ -40,7 +40,7 @@
             tripsWrapper.Should().NotBeNull();
             tripsWrapper.Should().BeOfType<TripsWrapper>();
 
-            var exception = await Assert.ThrowsExceptionAsync<InvalidOperationException>(async () => await tripsWrapper.GetTripsForStopAsync(string.Empty));
+            var exception = await Assert.ThrowsExactlyAsync<InvalidOperationException>(async () => await tripsWrapper.GetTripsForStopAsync(string.Empty));
 
             exception.Should().BeOfType<InvalidOperationException>();
             exception.Message.Should().Be("Cannot get trips for null/empty/whitespace stop.");

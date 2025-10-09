@@ -72,7 +72,7 @@ namespace Felsökning.Ireland.Tests.MetÉireann
                 HttpClient = new HttpClient(new TestingHttpMessageHandler())
             };
 
-            var exception = await Assert.ThrowsExceptionAsync<StatusException>(async () => await sut.GetRecentObservationsAsync(City.Athenry));
+            var exception = await Assert.ThrowsExactlyAsync<StatusException>(async () => await sut.GetRecentObservationsAsync(City.Athenry));
 
             exception.Should().NotBeNull();
             exception.Should().BeOfType<StatusException>();
