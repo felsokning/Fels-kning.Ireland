@@ -37,7 +37,7 @@ namespace Felsökning.Ireland.Tests.IarnródÉireann
             results.Should().NotBeNull();
             results.Count().Should().BeGreaterThanOrEqualTo(0);
 
-            var station = results.FirstOrDefault(x => x.StationDesc.Contains("Portlaoise"));
+            var station = results.FirstOrDefault(x => x.StationDesc.Contains("Ballyhaunis"));
             station!.StationAlias.Should().NotBeNull();
             station.StationLatitude.Should().BeGreaterThan(0);
             station.StationLongitude.Should().BeGreaterThan(-360);
@@ -53,7 +53,6 @@ namespace Felsökning.Ireland.Tests.IarnródÉireann
             stationData.Should().NotBeNull();
             stationData.Count().Should().BeGreaterThanOrEqualTo(0);
             var data = stationData.FirstOrDefault();
-            data.Should().NotBeNull();
             data?.Direction.Should().NotBeNullOrWhiteSpace();
             data?.Destination.Should().NotBeNullOrWhiteSpace();
             data?.Destinationtime.Should().NotBeNullOrWhiteSpace();

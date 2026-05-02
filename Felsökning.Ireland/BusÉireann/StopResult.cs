@@ -11,7 +11,10 @@ namespace Felsökning.Ireland.BusÉireann
     /// </summary>
     public class StopResult
     {
+        /// <summary>
+        /// The list of stops returned by the stop lookup API.
+        /// </summary>
         [JsonPropertyName("stops")]
-        public List<Stop> Stops { get; set; }
+        public List<Stop> Stops { get; set; } = new List<Stop>();
     }
 }

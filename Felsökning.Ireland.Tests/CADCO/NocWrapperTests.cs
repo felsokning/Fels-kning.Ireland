@@ -17,7 +17,8 @@ namespace Felsökning.Ireland.Tests.CADCO
 
             var arrivals = await sut.GetArrivalsAsync();
 
-            arrivals.Should().NotBeNullOrWhiteSpace();
+            arrivals.Should().NotBeNull();
+            arrivals.Should().BeOfType<List<FlightInformation>>();
         }
 
         [TestMethod]
@@ -27,7 +28,8 @@ namespace Felsökning.Ireland.Tests.CADCO
 
             var departures = await sut.GetDeparturesAsync();
 
-            departures.Should().NotBeNullOrWhiteSpace();
+            departures.Should().NotBeNull();
+            departures.Should().BeOfType<List<FlightInformation>>();
         }
     }
 }
