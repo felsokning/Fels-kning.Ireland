@@ -19,24 +19,27 @@ namespace Felsökning.Ireland.CADCO
         public NocWrapper()
             : base(HttpVersion.Version20)
         {
+            base.HttpClient.BaseAddress = new Uri("https://www.skyscanner.ie");
         }
 
         /// <summary>
         ///     Gets the Arrivals to NOC Airport as an HTML table.
         /// </summary>
         /// <returns>An HTML table body containing the Arrivals as rows.</returns>
-        public async Task<string> GetArrivalsAsync()
+        public async Task<List<FlightInformation>> GetArrivalsAsync()
         {
-            return await this.HttpClient.GetStringAsync("https://www.irelandwestairport.com/site/getArrival");
+            var skyScannerResponse = await this.HttpClient.GetAsync<SkyScannerResponse>("/g/arrival-departure-svc/api/airports/noc/arrivals?locale=en-GB");
+            return skyScannerResponse!.Arrivals;
         }
 
         /// <summary>
         ///     Gets the Departures to NOC Airport as an HTML table.
         /// </summary>
         /// <returns>An HTML table body containing the Departures as rows.</returns>
-        public async Task<string> GetDeparturesAsync()
+        public async Task<List<FlightInformation>> GetDeparturesAsync()
         {
-            return await this.HttpClient.GetStringAsync("https://www.irelandwestairport.com/site/getDeparture");
+            var skyScannerResponse = await this.HttpClient.GetAsync<SkyScannerResponse>("/g/arrival-departure-svc/api/airports/noc/departures?locale=en-GB");
+            return skyScannerResponse!.Departures;
         }
     }
 }

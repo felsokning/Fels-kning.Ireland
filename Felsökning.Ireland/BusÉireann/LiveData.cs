@@ -11,7 +11,10 @@ namespace Felsökning.Ireland.BusÉireann
     /// </summary>
     public class LiveData
     {
+        /// <summary>
+        /// Basic status information for the trip (delays, expected times).
+        /// </summary>
         [JsonPropertyName("basic_status")]
-        public BasicStatus BasicStatus { get; set; }
+        public BasicStatus BasicStatus { get; set; } = new BasicStatus();
     }
 }
