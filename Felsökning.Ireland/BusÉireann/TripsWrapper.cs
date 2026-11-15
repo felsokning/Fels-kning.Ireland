@@ -20,7 +20,7 @@ namespace Felsökning.Ireland.BusÉireann
         public TripsWrapper(string apiToken)
             : base(HttpVersion.Version11, "Felsökning.Ireland")
         {
-            this.HttpClient.DefaultRequestHeaders.Add("X-Api-Key", apiToken);
+            this.HttpClient.DefaultRequestHeaders.Add("x-api-key", apiToken);
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace Felsökning.Ireland.BusÉireann
                 throw new InvalidOperationException("Cannot get stops for null/empty/whitespace.");
             }
 
-            var stopsUlr = "https://api.buseireann.ie/stops";
+            var stopsUlr = "https://v2.api.buseireann.ie/stops";
             var stopResult = await this.HttpClient.GetAsync<StopResult>(stopsUlr);
             var stopResultStops = stopResult.Stops;
             var targetStops = stopResultStops.FindAll(x => x.City.Contains(city));
@@ -58,7 +58,7 @@ namespace Felsökning.Ireland.BusÉireann
 
             var startTime = Math.Round((DateTime.UtcNow - DateTime.UnixEpoch).TotalSeconds, 0);
             var endTime = Math.Round((DateTime.UtcNow.AddHours(8) - DateTime.UnixEpoch).TotalSeconds, 0);
-            var url = $"https://api.buseireann.ie/stops/{stopId}/trips?fromTime={startTime}&toTime={endTime}";
+            var url = $"https://v2.api.buseireann.ie/stops/{stopId}/trips?fromTime={startTime}&toTime={endTime}";
             var result = await this.HttpClient.GetAsync<TripResult>(url);
             return result.Trips;
         }
